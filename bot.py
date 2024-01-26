@@ -6,8 +6,8 @@ import schedule
 import discord
 from discord.ext import tasks
 
-base_urls = [ # Booru sites it gets the images from.
-    'https://realbooru.com/index.php?page=post&s=random', 
+base_urls = [
+    'https://realbooru.com/index.php?page=post&s=random',
     'https://blacked.booru.org/index.php?page=post&s=random',
     'https://danbooru.donmai.us/posts/random',
     'https://konachan.com/post/random',
@@ -31,9 +31,12 @@ excluded_urls = [
     'https://img.xbooru.com//images/68/04f597953cf8de09c100101b20f2385d4c0f1b7e.jpg?75652'
 ]
 
-current_base_index = 0  # Index to keep track of the current base URL
+current_base_index = 0
 
-bot = discord.Client()
+intents = discord.Intents.default()
+intents.all()
+
+bot = discord.Client(intents=intents)
 
 @bot.event
 async def on_ready():
