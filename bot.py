@@ -9,8 +9,6 @@ from discord.ext import tasks
 base_urls = [
     'https://realbooru.com/index.php?page=post&s=random',
     'https://blacked.booru.org/index.php?page=post&s=random',
-    'https://danbooru.donmai.us/posts/random',
-    'https://konachan.com/post/random',
 ]
 
 token = 'DISCORD BOT TOKEN' # Replace DISCORD BOT TOKEN with the token of the discord bot you want it to send through.
@@ -43,7 +41,7 @@ async def on_ready():
     print(f'Logged in as {bot.user.name}')
     send_images.start() 
 
-@tasks.loop(seconds=0.1)
+@tasks.loop(seconds=1.5)
 async def send_images():
     global current_base_index
 
